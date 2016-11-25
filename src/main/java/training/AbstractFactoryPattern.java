@@ -18,20 +18,20 @@ public class AbstractFactoryPattern {
 
     }
 
-    private static void getFinalProducysAndDoSomeThings(AbstractFactory factory){
+    private static void getFinalProducysAndDoSomeThings(AbstractFactory factory) {
         System.out.println();
         factory.getSomeThingA().doSomethingA();
         factory.getSomeThingB().doSomethingB();
     }
 
-    interface  AbstractFactory {
+    interface AbstractFactory {
 
         SomeThingA getSomeThingA();
 
         SomeThingB getSomeThingB();
     }
 
-     interface SomeThingA {
+    interface SomeThingA {
         void doSomethingA();
     }
 
@@ -39,31 +39,41 @@ public class AbstractFactoryPattern {
         void doSomethingB();
     }
 
-    static class SpecificFactoryOne implements AbstractFactory{
+    static class SpecificFactoryOne implements AbstractFactory {     // usual should be Singleton
+        private String way = "way One";
+
         @Override
         public SomeThingA getSomeThingA() {
-            return new SomeThingAImplOne();
+            return new SomeThingAImplOne(way);
         }
 
         @Override
         public SomeThingB getSomeThingB() {
-            return new SomeThingBImplOne();
+            return new SomeThingBImplOne(way);
         }
     }
 
-    static class SpecificFactoryTwo implements AbstractFactory{
+    static class SpecificFactoryTwo implements AbstractFactory {     // usual should be Singleton
+        private String way = "way Two";
+
         @Override
         public SomeThingA getSomeThingA() {
-            return new SomeThingAImplTwo();
+            return new SomeThingAImplTwo(way);
         }
 
         @Override
         public SomeThingB getSomeThingB() {
-            return new SomeThingBImplTwo();
+            return new SomeThingBImplTwo(way);
         }
     }
 
-    static class SomeThingAImplOne implements SomeThingA{
+    static class SomeThingAImplOne implements SomeThingA {
+        private String way;
+
+        public SomeThingAImplOne(String way) {
+            this.way = way;
+        }
+
         @Override
         public void doSomethingA() {
             System.out.println("Doing something AAA by way ONE.");
@@ -71,29 +81,45 @@ public class AbstractFactoryPattern {
         }
     }
 
-    static class SomeThingBImplOne implements SomeThingB{
+    static class SomeThingBImplOne implements SomeThingB {
+        private String way;
+
+        public SomeThingBImplOne(String way) {
+            this.way = way;
+        }
+
         @Override
         public void doSomethingB() {
-            System.out.println("Doing something BBB by way ONE.");
+            System.out.println("Doing something BBB by " + way + ".");
         }
     }
 
-    static class SomeThingAImplTwo implements SomeThingA{
+    static class SomeThingAImplTwo implements SomeThingA {
+        private String way;
+
+        public SomeThingAImplTwo(String way) {
+            this.way = way;
+        }
+
         @Override
         public void doSomethingA() {
-            System.out.println("Doing something AAA by way TWO.");
+            System.out.println("Doing something AAA by " + way + ".");
         }
     }
 
-    static class SomeThingBImplTwo implements SomeThingB{
+    static class SomeThingBImplTwo implements SomeThingB {
+        private String way;
+
+        public SomeThingBImplTwo(String way) {
+            this.way = way;
+        }
+
         @Override
         public void doSomethingB() {
-            System.out.println("Doing something BBB by way TWO.");
+            System.out.println("Doing something BBB by " + way + ".");
 
         }
     }
-
-
 
 
 }
