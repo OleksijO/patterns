@@ -64,7 +64,7 @@ public class AdapterPattern {
     }
 
     interface FastFrameworkWithNonConvenientInterface {
-        void doFast1();             // 1+3 = doSomethingA
+        void doFast1();             // 1+3 = doSomething
 
         void doFast2();
 

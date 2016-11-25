@@ -4,7 +4,8 @@ package training;
  * Created by oleksij.onysymchuk@gmail on 25.11.2016.
  */
 public class AbstractFactoryPattern {
-
+    // is using Factory Method for concrete particular product,
+    // but it is using same functionality with others, which also built by this particular factory
 
     public static void main(String[] args) {
 
