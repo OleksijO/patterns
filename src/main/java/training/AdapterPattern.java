@@ -3,7 +3,7 @@ package training;
 /**
  * Created by oleksij.onysymchuk@gmail on 25.11.2016.
  */
-public class Adapter {
+public class AdapterPattern {
 
     public static void main(String[] args) {
         //do something slowly
